@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript</title>
+        <!-- 3 -->
+        <script language="JavaScript">
+            function pesan(){
+                alert ("memanggil java script lewat body onload")
+            }    
+        </script>
+
+        <!-- 4 -->
+        <script language="JavaScript">
+            function test(val1, val2) {
+                document.write("<br>Perkalian: " + (val1 * val2) + "<br>");
+                document.write("Pembagian: " + (val1 / val2) + "<br>");
+                document.write("Penjumlahan: " + (val1 + val2) + "<br>");
+                document.write("Pengurangan: " + (val1 - val2) + "<br>");
+                document.write("Modulus: " + (val1 % val2) + "<br>");
+            }
+        </script>
+
+        <!-- 5 -->
+        <script lang="JavaScript">
+            var nilai = prompt("Nilai (0-100): ", 0);
+            var hasil = "";
+            if (nilai >= 60) {
+                hasil = "lulus";
+            } else {
+                hasil = "tidak lulus";
+            }
+            document.write("Hasil: " + hasil);
+        </script>
+
+        <!-- 5 -->
+        <script language="javascript">
+            function test() {
+                var vall = window.prompt("Input nilai (1-5):");
+                switch (vall) {
+                    case "1":
+                        document.write("Bilangan satu");
+                        break;
+                    case "2":
+                        document.write("Bilangan dua");
+                        break;
+                    case "3":
+                        document.write("Bilangan tiga");
+                        break;
+                    case "4":
+                        document.write("Bilangan empat");
+                        break;
+                    case "5":
+                        document.write("Bilangan lima");
+                        break;
+                    default:
+                        document.write("Bilangan lainnya");
+                }
+            }
+        </script>
+
+        <!-- 6 -->
+        <script language="javascript">
+            function test() {
+                var vall = document.kirim.T1.value;
+                if (vall % 2 == 0) {
+                    document.kirim.T2.value = "bilangan genap";
+                } else {
+                    document.kirim.T2.value = "bilangan ganjil";
+                }
+            }
+        </script>
+
+        <!-- 8 -->
+        <script>
+            function hitungTotal() {
+                var total = 0;
+    
+                // Mengambil elemen checkbox
+                var ayamGoreng = document.getElementById('ayam');
+                var tempeGoreng = document.getElementById('tempe');
+                var telurDadar = document.getElementById('telur');
+    
+                // Menghitung total berdasarkan checkbox yang dicentang
+                if (ayamGoreng.checked) {
+                    total += parseInt(ayamGoreng.value);
+                }
+                if (tempeGoreng.checked) {
+                    total += parseInt(tempeGoreng.value);
+                }
+                if (telurDadar.checked) {
+                    total += parseInt(telurDadar.value);
+                }
+    
+                // Menampilkan total pada elemen dengan id 'totalBayar'
+                document.getElementById('totalBayar').value = total;
+            }
+        </script>
+
+    </head>
+    <body onload=pesan()>
+        <!-- 1 -->
+        <h1>Pengenalan JavaScript</h1>
+        <h3>Contoh document.write dan console log</h3>
+        <script>
+            document.write("Hello World");
+            console.log("Hello World")
+        </script>
+
+        <br>
+
+        <!-- 2 -->
+        <script language="JavaScript">
+            document.write("Selamat mencoba javascript<br>");
+            document.write("Semoga Sukses!");
+        </script>
+
+        <br>
+
+        <!-- 3 -->
+        <input type="button" name="button1" value="arithmetic" onclick="test(9,4)">
+       
+        <br>
+
+        <!-- 5 -->
+        <input type="button" name="button1" value="switch" onclick="test()">
+
+        <!-- 6 -->
+        <form method="POST" name="kirim">
+            <p>BIL <input type="text" name="T1" size="20"> MERUPAKAN BIL <input type="text" name="T2" size="20" readonly></p>
+            <p><input type="button" value="TEBAK" name="B1" onclick="test()"></p>
+        </form>
+
+        <br>
+
+        <!-- 7 -->
+        <script language="javascript">
+            function ubahWarnaLB(warna) {
+                document.bgColor = warna;
+            }
+        
+            function ubahWarnaLD(warna) {
+                document.fgColor = warna;
+            }
+        </script>
+        
+        <h1>Tes</h1>
+        
+        <form>
+            <input type="button" value="Latar Belakang Hijau" onClick="ubahWarnaLB('GREEN')">
+            <input type="button" value="Latar Belakang Putih" onClick="ubahWarnaLB('WHITE')">
+            <input type="button" value="Teks Kuning" onClick="ubahWarnaLD('YELLOW')">
+            <input type="button" value="Teks Biru" onClick="ubahWarnaLD('BLUE')">
+        </form>
+        
+        <script language="javascript">
+            document.write("Dimodifikasi terakhir pada: " + document.lastModified);
+        </script>
+
+        <!-- 8 -->
+        <h1>Daftar Menu Makanan</h1>
+        <label><input type="checkbox" id="ayam" value="5000" onclick="hitungTotal()"> Ayam Goreng - Rp. 5.000</label><br>
+        <label><input type="checkbox" id="tempe" value="300" onclick="hitungTotal()"> Tempe Goreng - Rp. 300</label><br>
+        <label><input type="checkbox" id="telur" value="2300" onclick="hitungTotal()"> Telur Dadar - Rp. 2.300</label><br><br>
+    
+        <strong>Total Bayar: Rp. <input id="totalBayar" type="text" readonly></strong>
+    </body>
+</html>

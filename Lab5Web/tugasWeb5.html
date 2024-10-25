@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validasi</title>
+    <script>
+        function validateForm() {
+            // Mengambil nilai input form
+            var name = document.forms["myForm"]["name"].value;
+            var email = document.forms["myForm"]["email"].value;
+            var age = document.forms["myForm"]["age"].value;
+            var errorMessage = "";
+
+            // Validasi Nama
+            if (name == "") {
+                errorMessage += "Nama harus diisi.\n";
+            }
+
+            // Validasi Email dengan Regex
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                errorMessage += "Email tidak valid.\n";
+            }
+
+            // Validasi Umur
+            if (isNaN(age) || age == "") {
+                errorMessage += "Umur harus diisi dengan angka.\n";
+            } else if (age < 18) {
+                errorMessage += "Umur minimal adalah 18 tahun.\n";
+            }
+
+            // Tampilkan pesan error jika ada
+            if (errorMessage != "") {
+                alert(errorMessage);
+                return false; // Menghentikan pengiriman form
+            }
+
+            return true; // Mengizinkan pengiriman form
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulir Pendaftaran</h2>
+    <form name="myForm" onsubmit="return validateForm()">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="age">Umur:</label>
+        <input type="text" id="age" name="age"><br><br>
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
